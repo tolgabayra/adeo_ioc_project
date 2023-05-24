@@ -11,6 +11,7 @@ class IOC:
     def __init__(self, value):
         self.value = value
         self.results = []
+        self.endpoint = ""
 
     def query(self):
         raise NotImplementedError(
@@ -28,39 +29,36 @@ class IOC:
 
 class IP(IOC):
     def query(self):
-        endpoints = [
-            "https://www.virustotal.com/api/v3/ip_addresses/",
-        ]
-        for endpoint in endpoints:
-            url = endpoint + self.value
-            response = requests.get(url, headers=headers)
-            if response.status_code == 200:
-                data = response.text
-                self.results.append(data)
-            else:
-                self.results.append(f"Error occurred while querying {endpoint}.")
+        url = self.endpoint + self.value
+        response = requests.get(url, headers=headers)
+        if response.status_code == 200:
+            data = response.text
+            self.results.append(data)
+        else:
+            self.results.append(f"Error occurred while querying {self.endpoint}.")
 
 
 class Domain(IOC):
     def query(self):
-        endpoints = [
-            "https://www.virustotal.com/api/v3/domains/",
-        ]
-        for endpoint in endpoints:
-            url = endpoint + self.value
-            response = requests.get(url)
-            if response.status_code == 200:
-                data = response.json()
-                self.results.append(data)
-            else:
-                self.results.append(f"Error occurred while querying {endpoint}.")
+        url = self.endpoint + self.value
+        response = requests.get(url, headers=headers)
+        if response.status_code == 200:
+            data = response.text
+            self.results.append(data)
+        else:
+            self.results.append(f"Error occurred while querying {self.endpoint}.")
 
+
+""" 
 
 class SHA256(IOC):
     def query(self):
-        url = f"https://api.example.com/sha256?q={self.value}"
+        url = self.endpoint + self.value
         response = requests.get(url)
         if response.status_code == 200:
             data = response.json()
             if data:
                 self.results = data
+
+
+ """
