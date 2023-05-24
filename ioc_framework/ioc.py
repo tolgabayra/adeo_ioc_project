@@ -1,8 +1,9 @@
 import requests
+import os
 
 headers = {
     "accept": "application/json",
-    "x-apikey": "a9ca5c6cfb4bc7f7710b65c1515888c34703491a313e3ff837c9778087d72657",
+    "x-apikey": os.getenv("JWT_SECRET_KEY"),
 }
 
 
