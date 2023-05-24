@@ -27,6 +27,7 @@ python main.py
         IOCFramework sınıfı, IOC'leri yönetmek ve sorgulamak için kullanılır.
         add_ioc metoduyla IOC'leri ekleyebilir ve query_all metoduyla eklenen tüm IOC'leri sorgulayabilirsiniz.
         print_results_all metoduyla tüm IOC'lerin sonuçlarını yazdırabilirsiniz.
+        write_results metofu ile de sonuçları bir txt dosyasına yazdırabilirsiniz.
 
     __init__.py:
         Bu dosya bir Python paketini temsil eder. Paketin içindeki modüllere erişimi sağlar.

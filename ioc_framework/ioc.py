@@ -13,6 +13,7 @@ class IOC:
         self.results = []
         self.endpoint = ""
 
+    # Eğer query çalışmıuyorsa istisna olarak bu hata fırlatılır.
     def query(self):
         raise NotImplementedError(
             "Implement Error !, Query method must be implemented in classes."
@@ -27,6 +28,7 @@ class IOC:
             print(f"No results for {self.__class__.__name__} - {self.value}.")
 
 
+# İp ioc analiz işlemi
 class IP(IOC):
     def query(self):
         url = self.endpoint + self.value
@@ -37,7 +39,7 @@ class IP(IOC):
         else:
             self.results.append(f"Error occurred while querying {self.endpoint}.")
 
-
+# Domain ioc analiz işlemi
 class Domain(IOC):
     def query(self):
         url = self.endpoint + self.value
@@ -59,6 +61,9 @@ class SHA256(IOC):
             data = response.json()
             if data:
                 self.results = data
+
+
+sha256 = SHA256("ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa")
 
 
  """
