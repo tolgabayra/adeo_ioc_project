@@ -37,3 +37,7 @@ python main.py
         main fonksiyonu, IOCFramework örneğini oluşturur, IOC'leri ekler, sorgular ve sonuçları yazdırır.
         Kullanıcıya platform ve işlem seçeneklerini sorar ve seçilen seçeneklere göre IOC'leri oluşturur ve işler.
         Uygulama, main fonksiyonunu çalıştırarak başlatılır.
+
+
+#### Project preview
+![Alt text](video.gif)
