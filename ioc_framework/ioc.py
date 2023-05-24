@@ -3,7 +3,7 @@ import os
 
 headers = {
     "accept": "application/json",
-    "x-apikey": os.getenv("JWT_SECRET_KEY"),
+    "x-apikey": os.getenv("API_KEY"),
 }
 
 
